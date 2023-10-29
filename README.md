@@ -1,5 +1,5 @@
-# landing-page-tftws-com-FLUTTER
-Lading page sobre a série The Falcon and The Winter Soldier da Marvel, feita com flutter.
+# Landing Page The Falcon and The Winter Soldier com FLUTTER
+Landing page sobre a série The Falcon and The Winter Soldier da Marvel, feita com flutter.
 
 Acesse em: https://isabelafagundes.github.io/landing-page-tftws-com-FLUTTER/
 
