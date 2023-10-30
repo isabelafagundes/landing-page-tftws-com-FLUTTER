@@ -3,6 +3,8 @@ import 'package:landing_page_tfatws/interface/widgets/btn_assista_agora.widget.d
 import 'package:landing_page_tfatws/interface/widgets/btn_trailer.widget.dart';
 import 'package:landing_page_tfatws/interface/widgets/card_poster.widget.dart';
 import 'package:landing_page_tfatws/interface/widgets/card_poster_mobile.widget.dart';
+import 'package:landing_page_tfatws/interface/widgets/conteudo_home_mobile.widget.dart';
+import 'package:landing_page_tfatws/interface/widgets/conteudo_titulo.widget.dart';
 import 'package:landing_page_tfatws/interface/widgets/grid_estrelas.widget.dart';
 import 'package:landing_page_tfatws/interface/widgets/informacoes.widget.dart';
 import 'package:landing_page_tfatws/interface/widgets/sinopse.widget.dart';
@@ -20,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: Colors.black,
           image: DecorationImage(
@@ -28,65 +31,53 @@ class _HomePageState extends State<HomePage> {
                 : const AssetImage("assets/img/background2.jpg"),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(.15),
+              Colors.black.withOpacity(.2),
               BlendMode.dstATop,
             ),
           ),
         ),
-        child: SingleChildScrollView(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Flex(
-              direction: Axis.vertical,
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    const SizedBox(height: 50),
-                    Text(
-                      "Está disponível agora!".toUpperCase(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Poppins',
+        child: MediaQuery.of(context).size.width < 750
+            ? const ConteudoHomeMobileWidget()
+            : SingleChildScrollView(
+                child: SizedBox(
+                  height: 700,
+                  width: MediaQuery.of(context).size.width,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Positioned(
+                        top: 0,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 50),
+                            ConteudoTituloWidget(),
+                            if (MediaQuery.of(context).size.width < 750) Spacer(),
+                            MediaQuery.of(context).size.width < 750
+                                ? const Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      SizedBox(height: 20),
+                                      InformacoesWidget(),
+                                      SizedBox(height: 20),
+                                      CardPosterMobileWidget(),
+                                    ],
+                                  )
+                                : const Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(height: 80),
+                                      CardPosterWidget(),
+                                    ],
+                                  ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 30),
-                    Text(
-                      "O Falcão e o \nSoldado Invernal".toUpperCase(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: MediaQuery.of(context).size.height < 500 ? 38 : 48,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'TiltWarp',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const Spacer(),
-                MediaQuery.of(context).size.width < 750
-                    ? const Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(height: 20),
-                          InformacoesWidget(),
-                          SizedBox(height: 20),
-                          CardPosterMobileWidget(),
-                        ],
-                      )
-                    : const Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(height: 20),
-                          CardPosterWidget(),
-                          SizedBox(height: 80),
-                        ],
-                      ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }
