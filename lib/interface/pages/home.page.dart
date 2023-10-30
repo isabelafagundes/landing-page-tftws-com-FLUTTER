@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             ? const ConteudoHomeMobileWidget()
             : SingleChildScrollView(
                 child: SizedBox(
-                  height: 700,
+                  height: 650,
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
                     alignment: Alignment.center,
@@ -49,28 +49,16 @@ class _HomePageState extends State<HomePage> {
                         top: 0,
                         child: Column(
                           children: [
-                            const SizedBox(height: 50),
-                            ConteudoTituloWidget(),
+                            const SizedBox(height: 30),
+                            const ConteudoTituloWidget(),
                             if (MediaQuery.of(context).size.width < 750) Spacer(),
-                            MediaQuery.of(context).size.width < 750
-                                ? const Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      SizedBox(height: 20),
-                                      InformacoesWidget(),
-                                      SizedBox(height: 20),
-                                      CardPosterMobileWidget(),
-                                    ],
-                                  )
-                                : const Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      SizedBox(height: 80),
-                                      CardPosterWidget(),
-                                    ],
-                                  ),
+                            const Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(height: 80),
+                                CardPosterWidget(),
+                              ],
+                            ),
                           ],
                         ),
                       ),

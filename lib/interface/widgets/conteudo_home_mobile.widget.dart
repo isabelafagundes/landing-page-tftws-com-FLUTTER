@@ -13,7 +13,7 @@ class ConteudoHomeMobileWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned(top: 20, child: ConteudoTituloWidget()),
+          Positioned(top: 0, child: ConteudoTituloWidget()),
           Positioned(
             bottom: 0,
             child: Column(
