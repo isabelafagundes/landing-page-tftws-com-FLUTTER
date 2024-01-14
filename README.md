@@ -1,4 +1,4 @@
-# The Falcon and The Winter Soldier com FLutter
+# The Falcon and The Winter Soldier - FLutter
 Bem-vindo à landing page inspirada na série da Marvel Studios, "O Falcão e o Soldado Invernal". Este projeto cativante foi desenvolvido utilizando o framework Flutter, proporcionando uma experiência interativa e envolvente.
 
 ### Design Inspirado
