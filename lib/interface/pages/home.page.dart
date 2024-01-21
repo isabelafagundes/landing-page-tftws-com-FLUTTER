@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    double altura = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -40,26 +41,28 @@ class _HomePageState extends State<HomePage> {
             ? const ConteudoHomeMobileWidget()
             : SingleChildScrollView(
                 child: SizedBox(
-                  height: 650,
+                  height: altura,
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
                       Positioned(
                         top: 0,
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 30),
-                            const ConteudoTituloWidget(),
-                            if (MediaQuery.of(context).size.width < 750) Spacer(),
-                            const Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                SizedBox(height: 80),
-                                CardPosterWidget(),
-                              ],
-                            ),
-                          ],
+                        child: SizedBox(
+                          height: altura <= 730 ? altura * .86 : altura * .8,
+                          child: const Column(
+                            children: [
+                              SizedBox(height: 30),
+                              ConteudoTituloWidget(),
+                              Spacer(),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  CardPosterWidget(),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
