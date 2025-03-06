@@ -6,7 +6,7 @@ class ConteudoTituloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.width < 750 ? null : 200,
+      height: MediaQuery.of(context).size.width < 750 ? null : 210,
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(

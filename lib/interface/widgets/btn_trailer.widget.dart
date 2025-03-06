@@ -16,6 +16,9 @@ class BtnTrailerWidget extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xff1A191F),
         side: const BorderSide(width: 1, color: Colors.white),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
       ),
       child: Text(

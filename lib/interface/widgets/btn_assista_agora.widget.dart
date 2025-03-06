@@ -15,6 +15,9 @@ class BtnAssitaAgoraWidget extends StatelessWidget {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
       ),
       child: Text(
